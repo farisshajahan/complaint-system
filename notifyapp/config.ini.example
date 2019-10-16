@@ -1,0 +1,5 @@
+[Email]
+SMTP Host = smtp.gmail.com
+SMTP Port = 587
+from address = FROM_EMAIL_ADDRESS
+password = PASSWORD

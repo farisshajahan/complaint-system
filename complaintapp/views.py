@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView
-from .models import Complaint
+from complaintapp.models import Complaint
+from complaintapp.forms import ComplaintForm
+from notifyapp.main import Email, SMS
 
-class MainView(CreateView):
+
+class ComplaintView(CreateView):
     model = Complaint
-    fields = ['title', 'location', 'description', 'date']
-    template_name = 'complaintapp/form.html'
+    form_class = ComplaintForm
     success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        Email(**form.cleaned_data)
+        SMS()
+        return super(ComplaintView, self).form_valid(form)
