@@ -1,5 +1,22 @@
+<head>
+  {% include 'material/includes/material_css.html' %}
+  {% include 'material/includes/material_js.html' %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+{% load material_form %}
+<body>
+<div class="container">
+	<center><h2 class="white-text">Complaint Portal</h2></center>
 <form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Submit Complaint">
+  {% csrf_token %}
+  {% form form=form %}
+  <input type="date">
+  {% endform %}
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit Complaint
+    <i class="material-icons right">send</i>
 </form>
+</div>
+<script src="{% static 'js/app.js' %}"></script>
+</body>

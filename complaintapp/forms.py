@@ -5,4 +5,4 @@ class ComplaintForm(ModelForm):
     class Meta:
         model = Complaint
         fields = '__all__'
-        widgets = {'date':DateInput(attrs={'type': 'date'})}
+        widgets = {'date':DateInput(attrs={'type': 'date', 'id':'date'})}
