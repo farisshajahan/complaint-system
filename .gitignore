@@ -4,3 +4,5 @@ __pycache__
 *.pyo
 *.py~
 *.sqlite3
+static/
+*/static/
